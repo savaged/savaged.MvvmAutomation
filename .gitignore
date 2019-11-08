@@ -1,0 +1,14 @@
+﻿/packages
+/TestResults
+/.vs
+/UpgradeLog*.htm
+/completer.hist
+/**/*.csproj.user
+*.user
+*.partial.cs
+/**/bin
+/**/obj
+/**/*.pfx
+/**/sqlite3
+/**/.vs
+/**/.suo
