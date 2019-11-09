@@ -34,10 +34,8 @@ namespace savaged.MvvmAutomation.Bridge
             };
             _app.Show();
 
-            object[] ctorArgs = 
-            {
-                SimpleIoc.Default.GetInstance<IWindowService>() 
-            };
+            var windowService = SimpleIoc.Default.GetInstance<IWindowService>();
+            object[] ctorArgs = { windowService };
             var recordingService = new RecordingService
             {
                 IsEnabled = true
