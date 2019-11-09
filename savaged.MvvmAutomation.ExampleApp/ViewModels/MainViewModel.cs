@@ -5,7 +5,7 @@ using System.Windows.Input;
 
 namespace savaged.MvvmAutomation.ExampleApp.ViewModels
 {
-    class MainViewModel : BaseViewModel
+    public class MainViewModel : BaseViewModel
     {
         private readonly IWindowService _viewService;
         private bool _isBusy;

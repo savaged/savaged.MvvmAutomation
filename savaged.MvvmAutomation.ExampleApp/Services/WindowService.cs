@@ -5,18 +5,18 @@ using System.Windows;
 
 namespace savaged.MvvmAutomation.ExampleApp.Services
 {
-    class WindowService : IWindowService
+    public class WindowService : IWindowService
     {
         private readonly IDictionary<string, Type> _windowTypes;
         private readonly IViewModelLocator _viewModelLocator;
 
         public WindowService(
             IDictionary<string, Type> windowTypes,
-            IViewModelLocator viewModelLocator)
+            IViewModelLocator viewModelLocator = null)
         {
             _windowTypes = windowTypes ?? new Dictionary<string, Type>();
             _viewModelLocator = viewModelLocator ??
-                throw new ArgumentNullException(nameof(viewModelLocator));
+                new ViewModelLocator();
         }
 
         public void Show(string windowName)

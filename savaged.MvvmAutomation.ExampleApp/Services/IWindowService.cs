@@ -2,7 +2,7 @@
 
 namespace savaged.MvvmAutomation.ExampleApp.Services
 {
-    interface IWindowService
+    public interface IWindowService
     {
         bool? ShowDialog(string windowName);
 

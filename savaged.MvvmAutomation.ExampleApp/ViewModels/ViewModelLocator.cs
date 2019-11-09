@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace savaged.MvvmAutomation.ExampleApp.ViewModels
 {
-    class ViewModelLocator : IViewModelLocator
+    public class ViewModelLocator : IViewModelLocator
     {
         private IDictionary<string, ViewModelBase> _viewModels;
 

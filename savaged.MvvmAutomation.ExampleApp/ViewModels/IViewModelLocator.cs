@@ -2,7 +2,7 @@
 
 namespace savaged.MvvmAutomation.ExampleApp.ViewModels
 {
-    interface IViewModelLocator
+    public interface IViewModelLocator
     {
         ViewModelBase GetViewModel(string windowName);
     }
