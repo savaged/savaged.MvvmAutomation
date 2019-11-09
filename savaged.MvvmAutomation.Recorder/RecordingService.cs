@@ -29,13 +29,10 @@ namespace savaged.MvvmAutomation.Recorder
             if (string.IsNullOrEmpty(saveLocation))
             {
                 saveLocation =
-                    $"{Path.GetTempPath()}{GetType().Namespace}\\recording.json";
+                    $"{Path.GetTempPath()}{GetType().Namespace}-recording.json";
             }
-
             _serialiser = serialiser ?? new JsonSerialiser();
-
             _writer = writer ?? new FileWriter(saveLocation);
-
             _recordings = 
                 new LinkedList<(Recording Before, Recording After)>();
         }

@@ -87,20 +87,21 @@ namespace savaged.MvvmAutomation.Recorder
         private ViewModelBase Copy(
             ViewModelBase viewModel, object[] ctorArgs = null)
         {
-            object empty = null;
+            object template = null;
             if (ctorArgs == null)
             {
-                Activator.CreateInstance(ViewModelType);
+                template = Activator.CreateInstance(ViewModelType);
             }
             else
             {
-                Activator.CreateInstance(ViewModelType, ctorArgs);
+                template = Activator.CreateInstance(
+                    ViewModelType, ctorArgs);
             }
             var mc = new MapperConfiguration(
                 c => c.CreateMap(ViewModelType, ViewModelType));
             var mapper = mc.CreateMapper();
             var mapped = mapper.Map(
-                viewModel, empty, ViewModelType, ViewModelType);
+                viewModel, template, ViewModelType, ViewModelType);
             var value = mapped as ViewModelBase;
             return value;
         }
