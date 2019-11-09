@@ -1,7 +1,8 @@
 ﻿using GalaSoft.MvvmLight;
+using savaged.ExampleApp.Services;
 using System.Collections.Generic;
 
-namespace savaged.MvvmAutomation.ExampleApp.ViewModels
+namespace savaged.ExampleApp.ViewModels
 {
     public class ViewModelLocator : IViewModelLocator
     {

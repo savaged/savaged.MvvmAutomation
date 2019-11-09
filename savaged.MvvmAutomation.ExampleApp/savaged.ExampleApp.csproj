@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{9F9C6F6B-4DC4-4E10-95D6-A42B70012AFC}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>savaged.MvvmAutomation.ExampleApp</RootNamespace>
-    <AssemblyName>savaged.MvvmAutomation.ExampleApp</AssemblyName>
+    <RootNamespace>savaged.ExampleApp</RootNamespace>
+    <AssemblyName>savaged.ExampleApp</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -76,15 +76,6 @@
     <Compile Include="ExampleWindow.xaml.cs">
       <DependentUpon>ExampleWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Services\IWindowService.cs" />
-    <Compile Include="Services\WindowService.cs" />
-    <Compile Include="ViewModels\BaseViewModel.cs" />
-    <Compile Include="ViewModels\DialogViewModel.cs" />
-    <Compile Include="ViewModels\ExampleDialogViewModel.cs" />
-    <Compile Include="ViewModels\ExampleWindowViewModel.cs" />
-    <Compile Include="ViewModels\IViewModelLocator.cs" />
-    <Compile Include="ViewModels\MainViewModel.cs" />
-    <Compile Include="ViewModels\ViewModelLocator.cs" />
     <Page Include="ExampleDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -132,6 +123,16 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\savaged.ExampleApp.Services\savaged.ExampleApp.Services.csproj">
+      <Project>{66d3beb1-4e8d-49b8-98cc-68b554eee8c8}</Project>
+      <Name>savaged.ExampleApp.Services</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\savaged.ExampleApp.ViewModels\savaged.ExampleApp.ViewModels.csproj">
+      <Project>{5cc8ac10-174e-43a1-ab85-2d47120f8ee2}</Project>
+      <Name>savaged.ExampleApp.ViewModels</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

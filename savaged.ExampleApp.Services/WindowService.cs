@@ -1,9 +1,8 @@
-﻿using savaged.MvvmAutomation.ExampleApp.ViewModels;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Windows;
 
-namespace savaged.MvvmAutomation.ExampleApp.Services
+namespace savaged.ExampleApp.Services
 {
     public class WindowService : IWindowService
     {
@@ -16,7 +15,7 @@ namespace savaged.MvvmAutomation.ExampleApp.Services
         {
             _windowTypes = windowTypes ?? new Dictionary<string, Type>();
             _viewModelLocator = viewModelLocator ??
-                new ViewModelLocator();
+                throw new ArgumentNullException(nameof(viewModelLocator));
         }
 
         public void Show(string windowName)

@@ -1,7 +1,7 @@
-﻿<Application x:Class="savaged.MvvmAutomation.ExampleApp.App"
+﻿<Application x:Class="savaged.ExampleApp.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:savaged.MvvmAutomation.ExampleApp"
+             xmlns:local="clr-namespace:savaged.ExampleApp"
              Startup="OnStartup">
     <Application.Resources>
          

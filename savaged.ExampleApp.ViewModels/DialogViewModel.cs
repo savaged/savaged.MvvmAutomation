@@ -1,6 +1,6 @@
-﻿namespace savaged.MvvmAutomation.ExampleApp.ViewModels
+﻿namespace savaged.ExampleApp.ViewModels
 {
-    class DialogViewModel : BaseViewModel
+    public class DialogViewModel : BaseViewModel
     {
         private bool? _dialogResult;
 

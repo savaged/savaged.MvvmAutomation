@@ -1,9 +1,9 @@
 ﻿using GalaSoft.MvvmLight.CommandWpf;
-using savaged.MvvmAutomation.ExampleApp.Services;
+using savaged.ExampleApp.Services;
 using System;
 using System.Windows.Input;
 
-namespace savaged.MvvmAutomation.ExampleApp.ViewModels
+namespace savaged.ExampleApp.ViewModels
 {
     public class MainViewModel : BaseViewModel
     {

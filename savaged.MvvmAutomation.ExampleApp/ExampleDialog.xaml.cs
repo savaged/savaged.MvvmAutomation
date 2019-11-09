@@ -1,9 +1,9 @@
-﻿using savaged.MvvmAutomation.ExampleApp.ViewModels;
+﻿using savaged.ExampleApp.ViewModels;
 using System;
 using System.ComponentModel;
 using System.Windows;
 
-namespace savaged.MvvmAutomation.ExampleApp
+namespace savaged.ExampleApp
 {
     public partial class ExampleDialog : Window
     {

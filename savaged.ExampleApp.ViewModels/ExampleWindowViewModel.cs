@@ -1,4 +1,4 @@
-﻿namespace savaged.MvvmAutomation.ExampleApp.ViewModels
+﻿namespace savaged.ExampleApp.ViewModels
 {
     class ExampleWindowViewModel : BaseViewModel
     {

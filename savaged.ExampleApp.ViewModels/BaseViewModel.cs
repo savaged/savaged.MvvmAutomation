@@ -1,6 +1,6 @@
 ﻿using GalaSoft.MvvmLight;
 
-namespace savaged.MvvmAutomation.ExampleApp.ViewModels
+namespace savaged.ExampleApp.ViewModels
 {
     public class BaseViewModel : ViewModelBase
     {

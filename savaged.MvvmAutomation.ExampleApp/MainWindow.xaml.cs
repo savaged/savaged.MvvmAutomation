@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows;
 
-namespace savaged.MvvmAutomation.ExampleApp
+namespace savaged.ExampleApp
 {
     public partial class MainWindow : Window
     {

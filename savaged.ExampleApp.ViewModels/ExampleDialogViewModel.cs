@@ -1,7 +1,7 @@
 ﻿using GalaSoft.MvvmLight.CommandWpf;
 using System.Windows.Input;
 
-namespace savaged.MvvmAutomation.ExampleApp.ViewModels
+namespace savaged.ExampleApp.ViewModels
 {
     class ExampleDialogViewModel : DialogViewModel
     {

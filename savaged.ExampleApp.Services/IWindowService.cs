@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace savaged.MvvmAutomation.ExampleApp.Services
+namespace savaged.ExampleApp.Services
 {
     public interface IWindowService
     {

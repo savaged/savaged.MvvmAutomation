@@ -1,11 +1,11 @@
 ﻿using GalaSoft.MvvmLight.Ioc;
-using savaged.MvvmAutomation.ExampleApp.Services;
-using savaged.MvvmAutomation.ExampleApp.ViewModels;
+using savaged.ExampleApp.Services;
+using savaged.ExampleApp.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Windows;
 
-namespace savaged.MvvmAutomation.ExampleApp
+namespace savaged.ExampleApp
 {
     public partial class App : Application
     {
