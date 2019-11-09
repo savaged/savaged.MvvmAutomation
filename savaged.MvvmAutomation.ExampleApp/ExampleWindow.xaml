@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:savaged.ExampleApp"
         mc:Ignorable="d"
         Title="Example Window" Height="450" Width="800">
-    <Grid>
+    <Grid Background="{DynamicResource {x:Static SystemColors.ControlDarkBrushKey}}">
         <TextBlock Margin="100" Text="{Binding Feedback}"/>
     </Grid>
 </Window>

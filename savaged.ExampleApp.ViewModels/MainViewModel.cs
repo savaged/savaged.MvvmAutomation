@@ -13,10 +13,10 @@ namespace savaged.ExampleApp.ViewModels
         private string _feedback;
 
         public MainViewModel(
-            IWindowService viewService)
+            IWindowService windowService)
         {
-            _viewService = viewService ??
-                throw new ArgumentNullException(nameof(viewService));
+            _viewService = windowService ??
+                throw new ArgumentNullException(nameof(windowService));
 
             ShowExampleWindowCmd = new RelayCommand(
                 OnShowExampleWindow, () => CanShowExampleWindow);

@@ -1,7 +1,6 @@
 ﻿using AutoMapper;
 using GalaSoft.MvvmLight;
 using System;
-using System.Diagnostics.CodeAnalysis;
 
 namespace savaged.MvvmAutomation.Recorder
 {
@@ -19,7 +18,9 @@ namespace savaged.MvvmAutomation.Recorder
                     nameof(callerMemberName));
         }
 
-        public void RecordBefore<T>(T viewModel)
+        public void RecordBefore<T>(
+            T viewModel, 
+            object[] ctorArgs = null)
             where T : ViewModelBase
         {
             ViewModelType = typeof(T);
@@ -31,11 +32,13 @@ namespace savaged.MvvmAutomation.Recorder
                     nameof(RecordAfter));
             }
             _after = null;
-            Record(_before, viewModel);
+            Record(ref _before, viewModel, ctorArgs);
         }
 
         public void RecordAfter(
-            string callerMemberName, ViewModelBase viewModel)
+            string callerMemberName, 
+            ViewModelBase viewModel,
+            object[] ctorArgs = null)
         {
             if (callerMemberName != _callerMemberName)
             {
@@ -62,7 +65,7 @@ namespace savaged.MvvmAutomation.Recorder
                 throw new InvalidOperationException(
                     $"Always use the same {nameof(viewModel)}!");
             }
-            Record(_after, viewModel);
+            Record(ref _after, viewModel, ctorArgs);
         }
 
         public (Recording Before, Recording After) Recordings =>
@@ -72,15 +75,27 @@ namespace savaged.MvvmAutomation.Recorder
 
         protected abstract Recording NewRecording(ViewModelBase viewModel);
 
-        private void Record(Recording recording, ViewModelBase viewModel)
+        private void Record(
+            ref Recording recording, 
+            ViewModelBase viewModel,
+            object[] ctorArgs = null)
         {
-            var snapshot = Copy(viewModel);
+            var snapshot = Copy(viewModel, ctorArgs);
             recording = NewRecording(snapshot);
         }
 
-        private ViewModelBase Copy(ViewModelBase viewModel)
+        private ViewModelBase Copy(
+            ViewModelBase viewModel, object[] ctorArgs = null)
         {
-            object empty = Activator.CreateInstance(ViewModelType);
+            object empty = null;
+            if (ctorArgs == null)
+            {
+                Activator.CreateInstance(ViewModelType);
+            }
+            else
+            {
+                Activator.CreateInstance(ViewModelType, ctorArgs);
+            }
             var mc = new MapperConfiguration(
                 c => c.CreateMap(ViewModelType, ViewModelType));
             var mapper = mc.CreateMapper();

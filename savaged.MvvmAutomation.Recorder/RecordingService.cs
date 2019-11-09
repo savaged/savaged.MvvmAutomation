@@ -29,14 +29,15 @@ namespace savaged.MvvmAutomation.Recorder
             if (string.IsNullOrEmpty(saveLocation))
             {
                 saveLocation =
-                    $"{Path.GetTempPath()}{GetType().Namespace}\\";
+                    $"{Path.GetTempPath()}{GetType().Namespace}\\recording.json";
             }
 
             _serialiser = serialiser ?? new JsonSerialiser();
 
             _writer = writer ?? new FileWriter(saveLocation);
 
-            _recordings = new LinkedList<(Recording Before, Recording After)>();
+            _recordings = 
+                new LinkedList<(Recording Before, Recording After)>();
         }
 
         public bool IsEnabled { get; set; }
@@ -44,35 +45,39 @@ namespace savaged.MvvmAutomation.Recorder
         public void RecordBefore<T>(
             ICommand commandInvoked, 
             T viewModel,
+            object[] ctorArgs = null,
             [CallerMemberName] string callerMemberName = "")
             where T : ViewModelBase
         {
             if (!IsEnabled) return;
             _commandInvokedRecorder = new ViewModelCommandRecorder(
                 callerMemberName, commandInvoked);
-            _commandInvokedRecorder.RecordBefore(viewModel);
+            _commandInvokedRecorder.RecordBefore(viewModel, ctorArgs);
         }
 
         public void RecordAfter<T>(
             T viewModel,
+            object[] ctorArgs = null,
             [CallerMemberName] string callerMemberName = "")
             where T : ViewModelBase
         {
             if (!IsEnabled) return;
-            _commandInvokedRecorder.RecordAfter(callerMemberName, viewModel);
+            _commandInvokedRecorder.RecordAfter(
+                callerMemberName, viewModel, ctorArgs);
             _recordings.AddLast(_commandInvokedRecorder.Recordings);
         }
 
         public void RecordBefore<T>(
             PropertyChangedEventArgs e, 
             T viewModel,
+            object[] ctorArgs = null,
             [CallerMemberName] string callerMemberName = "")
             where T : ViewModelBase
         {
             if (!IsEnabled) return;
             _propertyChangedRecorder = new ViewModelPropertyChangedRecorder(
                 callerMemberName, e);
-            _propertyChangedRecorder.RecordBefore(viewModel);
+            _propertyChangedRecorder.RecordBefore(viewModel, ctorArgs);
         }
 
         public async Task SaveAsync()
@@ -80,8 +85,7 @@ namespace savaged.MvvmAutomation.Recorder
             if (!IsEnabled) return;
 
             var firstRecording = _recordings.FirstOrDefault();
-            if (firstRecording.Equals(
-                default(ValueTuple<Recording, Recording>)))
+            if (firstRecording.Equals(default))
             {
                 return;
             }

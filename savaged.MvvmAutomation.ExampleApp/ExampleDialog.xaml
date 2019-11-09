@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="Example Dialog" Height="450" Width="800"
         SourceInitialized="OnSourceInitialized">
-    <Grid>
+    <Grid Background="{DynamicResource {x:Static SystemColors.ControlDarkDarkBrushKey}}">
         <Button Margin="150" Content="OK" Command="{Binding OkCmd}"/>
     </Grid>
 </Window>
